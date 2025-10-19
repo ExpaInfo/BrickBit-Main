@@ -31,16 +31,6 @@
                 </a>
             </div>
             <div class="footer-links flex">
-                <a
-                    href="https://mooshimity.com"
-                    target="_blank"
-                    style="height: 60px; max-width: 360px"
-                >
-                    <SvgSprite
-                        svg="social/mooshimity.svg"
-                        style="width: 100%; height: 100%"
-                    />
-                </a>
                 <a href="/terms">TERMS OF SERVICE</a>
                 <a href="/rules">RULES OF CONDUCT</a>
                 <a href="/privacy">PRIVACY POLICY</a>
@@ -49,8 +39,7 @@
             </div>
             <div class="footer-divider"></div>
             <p class="footer-copyright">
-                © {{ new Date().getFullYear() }} Mooshimity. All Rights Reserved
-                BrickBit™ is a registered trademark of Mooshimity, Ltd.
+                © {{ new Date().getFullYear() }} BrickBit. All Rights Reserved.
             </p>
         </footer>
     </div>
