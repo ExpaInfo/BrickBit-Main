@@ -71,7 +71,7 @@
     @stack('meta')
     <meta name="theme-color" content="#00A9FE">
     <meta name="og:image" content="{{ asset('favicon.ico') }}">
-    <meta name="og:site_name" content="Brick Hill">
+<meta name="og:site_name" content="BrickBit.net">
     <meta name="og:description" content="A platform built on its community where you can customise your avatar, create and play games, or just socialise with others!">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -97,11 +97,11 @@
     @endguest
 
     @hasSection('title')
-        <title>@yield('title') - {{ config('app.name', 'Brick Hill') }}</title>
-        <meta name="og:title" content="@yield('title') - {{ config('app.name', 'Brick Hill') }}">
+<title>@yield('title') - {{ config('app.name', 'BrickBit.net') }}</title>
+<meta name="og:title" content="@yield('title') - {{ config('app.name', 'BrickBit.net') }}">
     @else
-        <title>{{ config('app.name', 'Brick Hill') }}</title>
-        <meta name="og:title" content="{{ config('app.name', 'Brick Hill') }}">
+<title>{{ config('app.name', 'BrickBit.net') }}</title>
+<meta name="og:title" content="{{ config('app.name', 'BrickBit.net') }}">
     @endif
 
     <link href="{{ asset('favicon.ico') }}" rel="icon">
@@ -128,7 +128,7 @@
     @if(app()->environment(['prod', 'production']))
     <script type="text/javascript" async="true">
         !function(){var e=document.createElement("script"),t=document.getElementsByTagName("script")[0],
-        a="https://cmp.quantcast.com".concat("/choice/","CH96B6ycUs-aM","/","www.brick-hill.com","/choice.js?tag_version=V2"),
+a="https://cmp.quantcast.com".concat("/choice/","CH96B6ycUs-aM","/","brickbit.net","/choice.js?tag_version=V2"),
         s=0;e.async=!0,e.type="text/javascript",e.src=a,t.parentNode.insertBefore(e,t),
         !function e(){for(var t,a="__tcfapiLocator",s=[],i=window;i;){try{if(i.frames[a]){t=i;break}}catch(n){}if(i===window.top)break;
         i=i.parent}t||(!function e(){var t=i.document,s=!!i.frames[a];if(!s){if(t.body){var n=t.createElement("iframe");
@@ -169,7 +169,7 @@
     <script src="{{ mix('legacy.js') }}"></script>
     @stack('scripts')
 
-    <meta name="author" content="Brick Hill">
+<meta name="author" content="BrickBit.net">
 </head>
 <body>
     <nav>

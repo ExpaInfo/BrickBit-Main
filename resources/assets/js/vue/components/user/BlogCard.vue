@@ -93,7 +93,7 @@ import axios from "axios";
 import { ref } from "vue";
 import { filterDate } from "@/filters/index";
 
-const BLOG_HOST = "https://blog.brick-hill.com";
+const BLOG_HOST = "https://blog.brickbit.net";
 const BLOG_KEY = "16a6bc5197c1f4ef1a2b9d84ae";
 
 const GET_POSTS_API = `${BLOG_HOST}/ghost/api/content/posts/?fields=title,url,feature_image,published_at&limit=3&include=authors&key=${BLOG_KEY}`;

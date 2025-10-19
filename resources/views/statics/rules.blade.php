@@ -68,7 +68,7 @@
         <br><br>Our staff team ultimately reserves the right to issue any punitive action, both after a team discussion and at their own discretion.<br><br>If any of the information in this document is unclear or you have any inquiries, please contact a moderator and they will be happy to assist you. You can find an introduction to each of our staff members on this page.
         </p>
         <div class="header-2" id="1.1">1.1 Appeals</div>
-        <p>If you wish to appeal an account closure, please email <a href="mailto:help@brick-hill.com">help@brick-hill.com</a></p>
+<p>If you wish to appeal an account closure, please email <a href="mailto:help@brickbit.net">help@brickbit.net</a></p>
         <div class="header-2" id="1.2">1.2 How we moderate</div>
         <p>
         Warning:<br>

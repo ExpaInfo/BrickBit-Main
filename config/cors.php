@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('WILDCARD_URL', 'https://*.brick-hill.com'), env('APP_URL')],
+'allowed_origins' => [env('WILDCARD_URL', 'https://*.brickbit.net'), env('APP_URL')],
 
     'allowed_origins_patterns' => [],
 

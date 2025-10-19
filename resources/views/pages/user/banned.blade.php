@@ -63,10 +63,10 @@
                     <span class="light-gray-text">{{ $ban->note }}</span>
                 </div>
             </div>
-            <span class="dark-gray-text" style="font-size:16px;">Please make sure that you have read our <a class="darker-gray-text bold" href="/terms" target="_blank">Terms of Service</a> before returning to make sure you and others have the best experience on Brick Hill.</span>
+            <span class="dark-gray-text" style="font-size:16px;">Please make sure that you have read our <a class="darker-gray-text bold" href="/terms" target="_blank">Terms of Service</a> before returning to make sure you and others have the best experience on BrickBit.net.</span>
             <hr>
             <div style="margin-bottom:10px;">
-                <span class="dark-gray-text" style="font-size:16px;">If you wish to appeal, contact <a class="darkest-gray-text" href="mailto:help@brick-hill.com">help@brick-hill.com</a>.
+                <span class="dark-gray-text" style="font-size:16px;">If you wish to appeal, contact <a class="darkest-gray-text" href="mailto:help@brickbit.net">help@brickbit.net</a>.
             </div>
             @if($past)
             <form method="POST" action="{{ route('postBanned') }}">

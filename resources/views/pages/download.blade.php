@@ -34,7 +34,7 @@
         <div class="main-holder grid">
             <div class="col-1-2">
                 <div class="large-text bold">EXPERIMENTAL BUILD</div>
-                If you want to try something new, the beta release of the next Brick Hill Workshop is now open to public testers!
+                If you want to try something new, the beta release of the next BrickBit Workshop is now open to public testers!
                 Keep scrolling to find out more about what's been packed into this build, or dive into it right now by paying for access below.
                 <br><br>
                 Rest assured; all of what you spend on beta access goes directly back into funding the development of the client and workshop.
@@ -80,7 +80,7 @@
                         <div class="small-text mb1">Play around with diverse new mediums when creating your maps.</div>
                         <div class="creator smaller-text">
                             Arctic Research Complex by 
-                            <a href="https://www.brick-hill.com/user/484" target="_blank">rowbot</a>
+                            <a href="https://brickbit.net/user/484" target="_blank">rowbot</a>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                         <div class="small-text mb1">Tailor everything you make with revamped environment features!</div>
                         <div class="creator smaller-text">
                             spacebuilder's Keep by 
-                            <a href="https://www.brick-hill.com/user/41209"target="_blank">Illusionism</a>
+                            <a href="https://brickbit.net/user/41209"target="_blank">Illusionism</a>
                         </div>
                     </div>
                 </div>
@@ -119,13 +119,13 @@
                         </div>
                         <div class="creator smaller-text">
                             Pirate Ship by 
-                            <a href="https://www.brick-hill.com/user/2"target="_blank">spacebuilder</a>
+                            <a href="https://brickbit.net/user/2"target="_blank">spacebuilder</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center">
-                <a href="https://blog.brick-hill.com/tag/new-client/">
+                <a href="https://blog.brickbit.net/tag/new-client/">
                     <div>Want to stay updated? We've got you covered.</div>
                     <div>Find all blog posts related to the upcoming client's development here.</div>
                 </a>

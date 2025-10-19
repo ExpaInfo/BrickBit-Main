@@ -314,4 +314,4 @@ $legacy = function () {
     });
 };
 Route::group(['domain' => config('site.url')], $legacy);
-Route::group(['domain' => 'brick-hill.com'], $legacy);
+Route::group(['domain' => 'brickbit.net'], $legacy);

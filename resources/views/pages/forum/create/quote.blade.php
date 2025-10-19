@@ -28,7 +28,7 @@
         <div class="content">
             <blockquote class="{{ $board->category->color }}">
                 <em>Quote from
-                    <a style="color:#444" href="https://www.brick-hill.com/user/{{ $reply->author->id }}">
+                    <a style="color:#444" href="/user/{{ $reply->author->id }}">
                         {{ $reply->author->username }}
                     </a>, {{ \Carbon\Carbon::parse($reply->created_at)->format('h:i A d/m/Y') }}
                 </em>
@@ -36,7 +36,7 @@
                 @foreach($reply->quotes as $quote)
                     <blockquote class="{{ $thread->board->category->color }}">
                         <em>Quote from
-                            <a style="color:#444" href="https://www.brick-hill.com/user/{{ $quote->author->id }}">
+                            <a style="color:#444" href="/user/{{ $quote->author->id }}">
                                 {{ $quote->author->username }}
                             </a>, {{ Carbon\Carbon::parse($quote->created_at)->format('h:i A d/m/Y') }}
                         </em>

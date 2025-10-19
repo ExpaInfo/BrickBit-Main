@@ -1,4 +1,4 @@
-Your Brick Hill account {{ $user->username }} has been logged in from a new device.<br>
+Your BrickBit.net account {{ $user->username }} has been logged in from a new device.<br>
 <ul>
     <li>Time: {{ $data['time']->toDayDateTimeString() }} UTC</li>
     <li>IP address: {{ $data['ip'] }}</li>
