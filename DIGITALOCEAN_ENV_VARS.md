@@ -23,11 +23,11 @@ COMPOSER_ALLOW_SUPERUSER=1
 ## **Database Variables (Your DigitalOcean MySQL):**
 ```
 DB_CONNECTION=mysql
-DB_HOST=your-db-host-from-digitalocean
-DB_PORT=your-db-port
+DB_HOST=db-brickbit-do-user-27781557-0.f.db.ondigitalocean.com
+DB_PORT=25060
 DB_DATABASE=defaultdb
 DB_USERNAME=doadmin
-DB_PASSWORD=your-database-password
+DB_PASSWORD=AVNS_vwc0u32s-wrI916VvN2
 DB_SSLMODE=REQUIRED
 ```
 
