@@ -262,20 +262,34 @@ class ForumController extends Controller
             }
 
             if (!$hasViewed) {
-                $views = Redis::incr("thread:$thread->id:view_count");
-                Redis::expire("thread:$thread->id:view_count", 86400);
-                if ($views >= 5) {
-                    Redis::setex("thread:$thread->id:view_count", 86400, "0");
+                try {
+                    if (extension_loaded('redis')) {
+                        $views = Redis::incr("thread:$thread->id:view_count");
+                        Redis::expire("thread:$thread->id:view_count", 86400);
+                        if ($views >= 5) {
+                            Redis::setex("thread:$thread->id:view_count", 86400, "0");
+                            $thread->timestamps = false;
+                            $thread->views = $thread->views + $views;
+                            $thread->save();
+                        }
+
+                        $views = Auth::user()->viewed_threads;
+                        $newArr[$id] = Carbon::now()->timestamp;
+                        $views = $newArr + $views;
+                        $uid = Auth::id();
+                        Redis::setex("user:{$uid}:threads:views", 86400 * 7 /* 7 days */, json_encode($views));
+                    } else {
+                        // Fallback: directly increment view count without Redis caching
+                        $thread->timestamps = false;
+                        $thread->views = $thread->views + 1;
+                        $thread->save();
+                    }
+                } catch (\Exception $e) {
+                    // Fallback: directly increment view count if Redis fails
                     $thread->timestamps = false;
-                    $thread->views = $thread->views + $views;
+                    $thread->views = $thread->views + 1;
                     $thread->save();
                 }
-
-                $views = Auth::user()->viewed_threads;
-                $newArr[$id] = Carbon::now()->timestamp;
-                $views = $newArr + $views;
-                $uid = Auth::id();
-                Redis::setex("user:{$uid}:threads:views", 86400 * 7 /* 7 days */, json_encode($views));
             }
         }
     }
