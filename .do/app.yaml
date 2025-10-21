@@ -30,7 +30,11 @@ services:
   - key: APP_DEBUG
     value: "false"
   - key: APP_URL
-    value: "https://${APP_DOMAIN}"
+    value: "https://brickbit.net"
+  - key: API_URL
+    value: "https://api.brickbit.net"
+  - key: ADMIN_URL
+    value: "https://admin.brickbit.net"
   - key: FAKE_NOTIFICATIONS
     value: "false"
   - key: L5_SWAGGER_GENERATE_ALWAYS
@@ -40,7 +44,7 @@ services:
   - key: SESSION_COOKIE
     value: "bh_session"
   - key: SESSION_DOMAIN
-    value: ".${APP_DOMAIN}"
+    value: ".brickbit.net"
   - key: LOG_CHANNEL
     value: "stderr"
   - key: LOG_LEVEL
