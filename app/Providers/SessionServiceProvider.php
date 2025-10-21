@@ -21,9 +21,17 @@ class SessionServiceProvider extends ServiceProvider
     {
         Session::extend('cachettl', function ($app) {
             $container = $app->make(\Illuminate\Contracts\Container\Container::class);
-            $store = config('session.store') ?: 'redis';
-            $cache = clone $container->make('cache')->store($store);
-            $cache->setConnection(config('session.connection'));
+            // Use file cache instead of Redis when Redis is not available
+            $store = config('session.store') ?: 'file';
+            try {
+                $cache = clone $container->make('cache')->store($store);
+                if ($store === 'redis') {
+                    $cache->setConnection(config('session.connection'));
+                }
+            } catch (\Exception $e) {
+                // Fallback to file cache if Redis fails
+                $cache = clone $container->make('cache')->store('file');
+            }
 
             $handler = new \App\Extensions\Session\CacheBasedSessionHandler(
                 $cache,
