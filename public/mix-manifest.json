@@ -1,4 +1,14 @@
 {
+    "/default.css": "/default.css",
+    "/dark.css": "/dark.css",
+    "/new_theme.css": "/new_theme.css",
+    "/runtime.js": "/runtime.js",
+    "/register.js": "/register.js",
+    "/vendor.js": "/vendor.js",
+    "/superadmin.js": "/superadmin.js",
+    "/admin.js": "/admin.js",
+    "/vue.js": "/vue.js",
+    "/legacy.js": "/legacy.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css"
 }
