@@ -1,0 +1,37 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+healthcheckPath = "/"
+healthcheckTimeout = 100
+healthcheckMaxRetries = 3
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[[services]]
+name = "web"
+source = "."
+
+[services.web.variables]
+APP_ENV = "production"
+APP_DEBUG = "false"
+APP_KEY = { $generate = "base64:32" }
+APP_URL = { $default = "https://${{RAILWAY_PUBLIC_DOMAIN}}" }
+
+LOG_CHANNEL = "stderr"
+LOG_LEVEL = "info"
+
+DB_CONNECTION = "mysql"
+DB_HOST = { $default = "${{MYSQLHOST}}" }
+DB_PORT = { $default = "${{MYSQLPORT}}" }
+DB_DATABASE = { $default = "${{MYSQLDATABASE}}" }
+DB_USERNAME = { $default = "${{MYSQLUSER}}" }
+DB_PASSWORD = { $default = "${{MYSQLPASSWORD}}" }
+
+CACHE_DRIVER = "redis"
+SESSION_DRIVER = "redis"
+QUEUE_DRIVER = "redis"
+
+REDIS_HOST = { $default = "${{REDISHOST}}" }
+REDIS_PORT = { $default = "${{REDISPORT}}" }
+REDIS_PASSWORD = { $default = "${{REDISPASSWORD}}" }

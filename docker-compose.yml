@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: brickbit-app
+    container_name: brickbit-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - brickbit-network
+    depends_on:
+      - db
+      - redis
+
+  webserver:
+    image: nginx:alpine
+    container_name: brickbit-webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./docker/nginx/ssl/:/etc/ssl/certs/
+    networks:
+      - brickbit-network
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: brickbit-db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: brickbit
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_PASSWORD: brickbit_password
+      MYSQL_USER: brickbit
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - brickbit-network
+
+  redis:
+    image: redis:alpine
+    container_name: brickbit-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    networks:
+      - brickbit-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: brickbit-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root_password
+    networks:
+      - brickbit-network
+    depends_on:
+      - db
+
+networks:
+  brickbit-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
+  redisdata:
+    driver: local
