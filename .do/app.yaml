@@ -6,7 +6,7 @@ services:
     repo: your-username/your-repo-name
     branch: main
   build_command: bash -c 'export COMPOSER_ALLOW_SUPERUSER=1 && composer install --no-dev --optimize-autoloader --ignore-platform-req=php --ignore-platform-req=ext-* --no-scripts && mkdir -p storage/{app,framework,logs} storage/framework/{cache,sessions,views} storage/framework/cache/data bootstrap/cache public && chmod -R 755 storage bootstrap/cache && echo "{\"/default.css\": \"/default.css\", \"/dark.css\": \"/dark.css\", \"/new_theme.css\": \"/new_theme.css\", \"/runtime.js\": \"/runtime.js\", \"/register.js\": \"/register.js\", \"/vendor.js\": \"/vendor.js\", \"/superadmin.js\": \"/superadmin.js\", \"/admin.js\": \"/admin.js\", \"/vue.js\": \"/vue.js\", \"/legacy.js\": \"/legacy.js\", \"/js/app.js\": \"/js/app.js\", \"/css/app.css\": \"/css/app.css\"}" > public/mix-manifest.json'
-  run_command: bash -c 'mkdir -p storage/{app,framework,logs} storage/framework/{cache,sessions,views} storage/framework/cache/data bootstrap/cache && chmod -R 775 storage bootstrap/cache && php artisan optimize:clear && php artisan config:cache && php artisan view:cache && vendor/bin/heroku-php-nginx -C .nginx.conf public/'
+  run_command: bash -c 'mkdir -p storage/{app,framework,logs} storage/framework/{cache,sessions,views} storage/framework/cache/data bootstrap/cache && chmod -R 775 storage bootstrap/cache && php artisan optimize:clear && php artisan config:cache && php artisan view:cache && vendor/bin/heroku-php-apache2 public/'
   http_port: 8080
   environment_slug: php
   env:
