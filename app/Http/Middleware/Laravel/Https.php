@@ -17,7 +17,11 @@ class Https
 
     public function handle($request, Closure $next)
     {
-        if (!$request->secure() && !$this->inExceptArray($request) && (app()->environment() != 'local' && app()->environment() != 'testing')) {
+        // Check if behind a load balancer (like DigitalOcean App Platform)
+        // Load balancers terminate SSL, so we need to check X-Forwarded-Proto header
+        $isSecure = $request->secure() || $request->header('X-Forwarded-Proto') === 'https';
+        
+        if (!$isSecure && !$this->inExceptArray($request) && (app()->environment() != 'local' && app()->environment() != 'testing')) {
             return redirect()->secure($request->getRequestUri());
         }
 
