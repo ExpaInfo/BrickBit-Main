@@ -76,29 +76,32 @@ jobs:
         QUEUE_DRIVER: sync
       run: echo "Tests skipped - no test suite configured yet"
 
-  deploy:
-    needs: laravel-tests
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Deploy to production
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
-        port: ${{ secrets.PORT }}
-        script: |
-          cd /var/www/html
-          git pull origin main
-          composer install --optimize-autoloader --no-dev
-          php artisan migrate --force
-          php artisan cache:clear
-          php artisan config:cache
-          php artisan route:cache
-          php artisan view:cache
-          sudo systemctl reload php8.2-fpm
-          sudo systemctl reload nginx
+  # Deployment is handled automatically by DigitalOcean App Platform
+  # No SSH deployment needed - DigitalOcean deploys on every push to main
+  # 
+  # deploy:
+  #   needs: laravel-tests
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+  #
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #
+  #   - name: Deploy to production
+  #     uses: appleboy/ssh-action@v0.1.5
+  #     with:
+  #       host: ${{ secrets.HOST }}
+  #       username: ${{ secrets.USERNAME }}
+  #       key: ${{ secrets.KEY }}
+  #       port: ${{ secrets.PORT }}
+  #       script: |
+  #         cd /var/www/html
+  #         git pull origin main
+  #         composer install --optimize-autoloader --no-dev
+  #         php artisan migrate --force
+  #         php artisan cache:clear
+  #         php artisan config:cache
+  #         php artisan route:cache
+  #         php artisan view:cache
+  #         sudo systemctl reload php8.2-fpm
+  #         sudo systemctl reload nginx
