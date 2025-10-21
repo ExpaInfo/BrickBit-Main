@@ -10,3 +10,5 @@
 .phpunit.result.cache
 _ide*
 rr
+DATABASE_CREDENTIALS.txt
+.env.digitalocean
