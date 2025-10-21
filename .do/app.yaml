@@ -10,7 +10,7 @@ services:
   environment_slug: php
   env:
     - key: PHP_VERSION
-      value: "8.1"
+      value: "8.2"
   instance_count: 1
   instance_size_slug: basic-xxs
   routes:

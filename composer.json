@@ -8,7 +8,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^8.1",
+        "php": "^8.1|^8.2|^8.3",
         "async-aws/lambda": "^1.8",
         "async-aws/sqs": "^1.7",
         "aws/aws-sdk-php": "^3.257",
