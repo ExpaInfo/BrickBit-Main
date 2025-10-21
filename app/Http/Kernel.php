@@ -76,7 +76,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\Laravel\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequestsWithRedis::class,
+        'throttle' => \\Illuminate\\Routing\\Middleware\\ThrottleRequests::class,
 
         'admin' => \App\Http\Middleware\Admin::class,
         'permission_or_user' => \App\Http\Middleware\PermissionOrUser::class,
