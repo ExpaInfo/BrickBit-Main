@@ -42,8 +42,14 @@ class PageController extends Controller
         if (Auth::check())
             return redirect('dashboard');
 
+        try {
+            $user_count = cache()->remember('total_user_count', 60 * 10, fn () => User::count());
+        } catch (\Exception $e) {
+            $user_count = 0;
+        }
+
         return view('pages.index')->with([
-            'user_count' => cache()->remember('total_user_count', 60 * 10, fn () => User::count())
+            'user_count' => $user_count
         ]);
     }
 
