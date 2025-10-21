@@ -1,2 +1,75 @@
-/* Dark theme CSS placeholder */
-body { font-family: Arial, sans-serif; }
+/* Dark theme CSS */
+body { 
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #2d2d30;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #404040;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.homepage {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.homepage h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #00a9fe;
+}
+
+.homepage p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #00a9fe;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0088cc;
+}
