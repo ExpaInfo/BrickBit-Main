@@ -31,14 +31,22 @@ DB_PASSWORD=AVNS_vwc0u32s-wrI916VvN2
 DB_SSLMODE=REQUIRED
 ```
 
-## **Redis Variables (Add when you create Redis database):**
+## **Cache Variables (Using file cache - no Redis needed initially):**
 ```
-CACHE_DRIVER=redis
-SESSION_DRIVER=redis
-QUEUE_DRIVER=redis
-REDIS_HOST=${redis.HOSTNAME}
-REDIS_PORT=${redis.PORT}
-REDIS_PASSWORD=${redis.PASSWORD}
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+```
+
+## **Redis Variables (OPTIONAL - Add later when you create Redis database):**
+```
+# Uncomment these when you add Redis database:
+# CACHE_DRIVER=redis
+# SESSION_DRIVER=redis
+# QUEUE_DRIVER=redis
+# REDIS_HOST=${redis.HOSTNAME}
+# REDIS_PORT=${redis.PORT}
+# REDIS_PASSWORD=${redis.PASSWORD}
 ```
 
 ## **Storage Variables:**

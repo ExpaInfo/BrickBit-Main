@@ -55,23 +55,13 @@ services:
   - key: DB_PASSWORD
     value: "${db.PASSWORD}"
   - key: CACHE_DRIVER
-    value: "redis"
+    value: "file"
   - key: SESSION_DRIVER
-    value: "redis"
+    value: "file"
   - key: QUEUE_DRIVER
-    value: "redis"
-  - key: REDIS_HOST
-    value: "${redis.HOSTNAME}"
-  - key: REDIS_PORT
-    value: "${redis.PORT}"
-  - key: REDIS_PASSWORD
-    value: "${redis.PASSWORD}"
+    value: "sync"
 
 databases:
 - name: db
   engine: MYSQL
   version: "8"
-
-- name: redis
-  engine: REDIS
-  version: "7"
