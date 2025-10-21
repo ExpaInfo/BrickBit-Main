@@ -51,6 +51,7 @@
         3 => 'default',
         4 => 'dark'
     ];
+    $asset_v = env('ASSET_VERSION', time());
 @endphp
 
 <!DOCTYPE html>
@@ -108,15 +109,15 @@
 
     @auth
         @if(array_key_exists(auth()->user()->theme, $themeList))
-        <link href="{{ mix($themeList[auth()->user()->theme].'.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset($themeList[auth()->user()->theme].'.css') }}?v={{ $asset_v }}" rel="stylesheet" type="text/css">
         @else
-        <link href="{{ mix('default.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('default.css') }}?v={{ $asset_v }}" rel="stylesheet" type="text/css">
         @endif
     @endauth
     @guest
-    <link href="{{ mix("$defaultTheme.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("$defaultTheme.css") }}?v={{ $asset_v }}" rel="stylesheet" type="text/css">
     @endguest
-    <link href="{{ mix('new_theme.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('new_theme.css') }}?v={{ $asset_v }}" rel="stylesheet" type="text/css">
     <link
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -156,17 +157,17 @@ a="https://cmp.quantcast.com".concat("/choice/","CH96B6ycUs-aM","/","brickbit.ne
     </script>
     @endif
 
-    <script src="{{ mix('runtime.js') }}"></script>
-    <script src="{{ mix('register.js') }}"></script>
-    <script src="{{ mix('vendor.js') }}"></script>
+    <script src="{{ asset('runtime.js') }}?v={{ $asset_v }}"></script>
+    <script src="{{ asset('register.js') }}?v={{ $asset_v }}"></script>
+    <script src="{{ asset('vendor.js') }}?v={{ $asset_v }}"></script>
     @if(request()->root() == config('site.admin_url'))
-    <script src="{{ mix('superadmin.js') }}"></script>
+    <script src="{{ asset('superadmin.js') }}?v={{ $asset_v }}"></script>
     @endif
     @if(auth()->check() && auth()->user()->is_admin)
-    <script src="{{ mix('admin.js') }}"></script>
+    <script src="{{ asset('admin.js') }}?v={{ $asset_v }}"></script>
     @endif
-    <script src="{{ mix('vue.js') }}"></script>
-    <script src="{{ mix('legacy.js') }}"></script>
+    <script src="{{ asset('vue.js') }}?v={{ $asset_v }}"></script>
+    <script src="{{ asset('legacy.js') }}?v={{ $asset_v }}"></script>
     @stack('scripts')
 
 <meta name="author" content="BrickBit.net">
