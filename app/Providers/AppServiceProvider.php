@@ -11,6 +11,7 @@ use Laravel\Passport\Passport;
 use Laravel\Scout\EngineManager;
 use App\Extensions\Search\OpenSearchEngine;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\File;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Ensure required storage directories exist at runtime (App Platform containers are ephemeral)
+        $dirs = [
+            storage_path('framework'),
+            storage_path('framework/cache'),
+            storage_path('framework/cache/data'),
+            storage_path('framework/sessions'),
+            storage_path('framework/views'),
+        ];
+        foreach ($dirs as $dir) {
+            if (!is_dir($dir)) {
+                @mkdir($dir, 0775, true);
+            }
+        }
+
         Passport::hashClientSecrets();
 
         //Model::preventLazyLoading(!app()->isProduction());
