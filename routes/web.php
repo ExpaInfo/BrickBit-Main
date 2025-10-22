@@ -1,6 +1,8 @@
 <?php
 
-Route::group(['domain' => config('site.url')], function () {
+$__brickbit_host = parse_url(config('site.url'), PHP_URL_HOST) ?: config('site.url');
+
+Route::group(['domain' => $__brickbit_host], function () {
 
     // ONE TIME SPECIAL
     //Route::get('aeoroll', 'PageController@aeo')->middleware('throttle:60');
@@ -237,7 +239,9 @@ Route::group(['domain' => config('site.url')], function () {
 
 // API SUBDOMAIN //
 
-Route::group(['middleware' => ['api'], 'domain' => config('site.api_url')], function () {
+$__brickbit_api_host = parse_url(config('site.api_url'), PHP_URL_HOST) ?: config('site.api_url');
+
+Route::group(['middleware' => ['api'], 'domain' => $__brickbit_api_host], function () {
     Route::group(['namespace' => 'API'], function () {
 
         // GAME AUTH APIS //
@@ -313,5 +317,5 @@ $legacy = function () {
         Route::get('download/latest', [\App\Http\Controllers\API\Client\LegacySetAPIController::class, 'latest']);
     });
 };
-Route::group(['domain' => config('site.url')], $legacy);
+Route::group(['domain' => $__brickbit_host], $legacy);
 Route::group(['domain' => 'brickbit.net'], $legacy);
