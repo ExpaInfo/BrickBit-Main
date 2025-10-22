@@ -2,6 +2,15 @@
 
 $__brickbit_host = parse_url(config('site.url'), PHP_URL_HOST) ?: config('site.url');
 
+// Temporary HTTP migration endpoint, gated by env flags and key
+if (env('ENABLE_HTTP_MIGRATE', false)) {
+    \Illuminate\Support\Facades\Route::get('/__migrate', function () {
+        if (request('key') !== env('MAINTENANCE_KEY')) abort(403);
+        \Artisan::call('migrate', ['--force' => true]);
+        return nl2br(\Artisan::output());
+    })->middleware('web');
+}
+
 Route::group(['domain' => $__brickbit_host], function () {
 
     // ONE TIME SPECIAL

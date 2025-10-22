@@ -39,6 +39,12 @@ services:
     value: "false"
   - key: L5_SWAGGER_GENERATE_ALWAYS
     value: "false"
+  - key: ENABLE_HTTP_MIGRATE
+    value: "true"
+  - key: MAINTENANCE_KEY
+    value: "secret"
+    scope: RUN_TIME
+    type: SECRET
   - key: MAIN_ACCOUNT_ID
     value: "1003"
   - key: SESSION_COOKIE
