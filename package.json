@@ -5,7 +5,8 @@
         "development": "webpack --mode=development",
         "watch": "npm run development -- --watch",
         "prod": "npm run production",
-        "production": "webpack --mode=production"
+        "production": "webpack --mode=production",
+        "build": "npm run production"
     },
     "devDependencies": {
         "@intlify/vue-i18n-loader": "^4.2.0",
