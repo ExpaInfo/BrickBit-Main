@@ -71,7 +71,7 @@
 
     @stack('meta')
     <meta name="theme-color" content="#00A9FE">
-    <meta name="og:image" content="{{ asset('favicon.ico') }}">
+    <meta name="og:image" content="{{ asset('favicon.png') }}">
 <meta name="og:site_name" content="BrickBit.net">
     <meta name="og:description" content="A platform built on its community where you can customise your avatar, create and play games, or just socialise with others!">
 
@@ -105,7 +105,9 @@
 <meta name="og:title" content="{{ config('app.name', 'BrickBit.net') }}">
     @endif
 
-    <link href="{{ asset('favicon.ico') }}" rel="icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon.png') }}?v={{ $asset_v }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon.png') }}?v={{ $asset_v }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}?v={{ $asset_v }}">
 
     @auth
         @if(array_key_exists(auth()->user()->theme, $themeList))
